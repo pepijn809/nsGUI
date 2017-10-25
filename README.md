@@ -9,10 +9,16 @@ station in the Netherlands.
 * Website: **Coming soon**  
 * Client: **Hogeschool Utrecht**  
 
-## Quick Start
+## Quick Start  
 1. Download the latest stable release from [releases](https://github.com/pepijn809/nsGUI/releases)
 2. Clone the git repo — git clone https://github.com/pepijn809/nsGUI.git - and find the release.
-3. Check out our [Wiki](https://github.com/pepijn809/nsGUI/wiki) and [Get Started page](https://github.com/pepijn809/nsGUI/wiki/Requirements)
+3. Check out our [Wiki](https://github.com/pepijn809/nsGUI/wiki) and [Get Started page](https://github.com/pepijn809/nsGUI/wiki/Requirements)  
+
+## Features  
+* Easy to use 'Graphical User Interface' for finding train station information. 
+* Designed with great care and code quality
+* XML exporter to data in application
+* Build with pizza and fries
 
 ### 0_o 
 ![NS op tijd](https://i.imgur.com/85qa0BJ.png)
