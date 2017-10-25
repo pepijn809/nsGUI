@@ -37,7 +37,7 @@ Documentation is provided to the client of this product, and some of will be add
 Anyone is welcome to contribute (in the future),  
 
 * [Submit bug reports](https://github.com/pepijn809/nsGUI/wiki/Bug-reports)
-* Feature request
+* [Feature request](https://github.com/pepijn809/nsGUI/wiki/Feature-requests)
 
 ### 0_o - memed
 ![NS op tijd](https://i.imgur.com/85qa0BJ.png)
