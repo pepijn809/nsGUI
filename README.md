@@ -10,9 +10,9 @@ station in the Netherlands.
 * Client: **Hogeschool Utrecht**  
 
 ## Quick Start
-1. Download the latest stable release from (releases)[https://github.com/pepijn809/nsGUI/releases]
+1. Download the latest stable release from [releases](https://github.com/pepijn809/nsGUI/releases)
 2. Clone the git repo — git clone https://github.com/pepijn809/nsGUI.git - and checkout the tagged release you'd like to use.
-3. Check out our (Wiki)[https://github.com/pepijn809/nsGUI/wiki] and (Get Started page)[https://github.com/pepijn809/nsGUI/wiki/Requirements]
+3. Check out our [Wiki](https://github.com/pepijn809/nsGUI/wiki) and [Get Started page](https://github.com/pepijn809/nsGUI/wiki/Requirements)
 
 ### 0_o 
 ![NS op tijd](https://i.imgur.com/85qa0BJ.png)
