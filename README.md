@@ -26,7 +26,7 @@ station in the Netherlands.
 ## Documentation  
 Documentation is provided to the client of this product, and some of will be added to the github wiki.
 
-## Collaborators  
+## Assigned collaborators  
 - Pepijn809
 - Harootyoon
 - Sedzjad
