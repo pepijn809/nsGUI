@@ -1,4 +1,4 @@
-# nsGUI     v.0.7
+# nsGUI     v.0.9
 A front end GUI with API that asks the NSAPIv2 for XML Train Station data and makes it look nice
 
 This teamproject is the product of a few days of development and a relentless determination to eat some pizza (with fries). 
