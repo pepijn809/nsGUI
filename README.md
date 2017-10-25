@@ -12,7 +12,7 @@ station in the Netherlands.
 ## Quick Start  
 1. Download the latest stable release from [releases](https://github.com/pepijn809/nsGUI/releases)
 2. Clone the git repo — git clone https://github.com/pepijn809/nsGUI.git - and find the release.
-3. Check out our [Wiki](https://github.com/pepijn809/nsGUI/wiki) and [Get Started page](https://github.com/pepijn809/nsGUI/wiki/Requirements)  
+3. Check out our [Wiki](https://github.com/pepijn809/nsGUI/wiki) or [Get Started page](https://github.com/pepijn809/nsGUI/wiki/Requirements)  
 
 ## Features  
 * Easy to use 'Graphical User Interface' for finding train station information. 
