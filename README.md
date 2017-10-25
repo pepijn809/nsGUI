@@ -33,6 +33,11 @@ Documentation is provided to the client of this product, and some of will be add
 - Thoom76
 - Floris
 
+## Contributing  
+Anyone is welcome to contribute (in the future),  
+
+* Submit bug reports
+* Feature request
 
 ### 0_o - memed
 ![NS op tijd](https://i.imgur.com/85qa0BJ.png)
