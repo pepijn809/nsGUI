@@ -24,5 +24,16 @@ station in the Netherlands.
 * Microsoft Windows
 * Linux (coming soon)
 
+## Documentation  
+Documentation is provided to the client of this product, and some of will be added to the github wiki.
+
+## Collaborators  
+- Pepijn809
+- Harootyoon
+- Sedzjad
+- Thoom76
+- Floris
+
+
 ### 0_o - memed
 ![NS op tijd](https://i.imgur.com/85qa0BJ.png)
