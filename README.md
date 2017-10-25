@@ -36,7 +36,7 @@ Documentation is provided to the client of this product, and some of will be add
 ## Contributing  
 Anyone is welcome to contribute (in the future),  
 
-* Submit bug reports
+* [Submit bug reports](https://github.com/pepijn809/nsGUI/wiki/Bug-reports)
 * Feature request
 
 ### 0_o - memed
