@@ -7,7 +7,7 @@ nsGUI provides a easy to navigate Graphical User Interface, that allows the user
 station in the Netherlands.
 
 * Website: **Coming soon**  
-* Client: **Hogeschool Utrecht**  
+* Client: [**Hogeschool Utrecht**](https://hu.nl)   
 
 ## Quick Start  
 1. Download the latest stable release from [releases](https://github.com/pepijn809/nsGUI/releases)
