@@ -18,7 +18,11 @@ station in the Netherlands.
 * Easy to use 'Graphical User Interface' for finding train station information. 
 * Designed with great care and code quality
 * XML exporter to data in application
-* Build with pizza and fries
+* Build with pizzaTM and fries
 
-### 0_o 
+## Support for   
+* Microsoft Windows
+* Linux (coming soon)
+
+### 0_o - memed
 ![NS op tijd](https://i.imgur.com/85qa0BJ.png)
