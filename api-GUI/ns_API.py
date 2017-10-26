@@ -27,12 +27,10 @@ def ns_API2Format(inputStation):
 
             # response van de web api naar lokale variabele
             webResponse = requests.get(api_url, auth=auth_details)
-
             #openen van het bestand met of zonder de stations
             with open(XML_File, 'w') as infile:
                 #het schrijven van de data op de web pagina naar een textbestand
                 infile.write(webResponse.text)
-
 
             #functie xml naar dictionary
             def processXML(filename):
@@ -60,8 +58,10 @@ def ns_API2Format(inputStation):
                 vertrektijd += [vertrektijdString]
                 eindbestemming += [station['EindBestemming']]
                 treinSoort += [station['TreinSoort']]
-                vertrekspoor += [station['VertrekSpoor']['#text']]
-
+                try:
+                    vertrekspoor += [station['VertrekSpoor']['#text']]
+                except KeyError:
+                    vertrekspoor += ['']
                 #als er geen opmerkingen staan in het xml bestand dan returnt het programma een lege string
                 # en anders gaat het programma de opmerking returnen
                 try:
@@ -78,11 +78,12 @@ def ns_API2Format(inputStation):
             # errorMessage voor verschillende fouten die zich op kunnen doen
             return ['geen resultaten gevonden voor {}'.format(inputStation)]
 
-        except:
+        except Exception as error:
+            print(error)
             return ['Zorg voor stabiele internet connectie!']
 
     dict = {}
-    for x in range(len(vertrektijd)):
+    for x in range(len(eindbestemming)):
         dict[x] = {}
         dict[x]['vertrektijd'] = vertrektijd[x]
         dict[x]['eindbestemming'] = eindbestemming[x]
