@@ -11,27 +11,41 @@ def interfacePrinter(station):
     try:
         # kiezen uit
         # vertrektijd, eindbestemming, treinSoort, vertrekspoor, viaRoute, opmerking
-        text = ['{:14}{:20}{:12}{}'.format('vertrektijd:', 'eindbestemming:', 'treinSoort:', 'vertrekspoor:')]
+        text = list()
+        text += ['{:45}{:45}{:45}{}'.format('vertrektijd:', 'eindbestemming:', 'treinSoort:', 'vertrekspoor:')]
         for x in ns_API2Format:
+            # opmaak voor de gui met een formule die grofweg omrekend hoe veel spaties er nodig zijn om de breedte van de letters om te rekenen.
+            # dat is met deze formule dus wat makkeljker geregeld
+            def opmaak(valueNaam, breedteAfstand):
+                return (int((float(breedteAfstand) - len(ns_API2Format[x][str(valueNaam)])) * 1.8) * ' ')
+
             # makkelijke notatie voor makkelijk gebruik
+            # inclusief de wat moeilijkere informatie in de variabelen wat niets anders is dan alles op de goede plaats krijgen met spaties
             vertrektijd = ns_API2Format[x]['vertrektijd']
-            eindbestemming = ns_API2Format[x]['eindbestemming']
-            treinSoort = ns_API2Format[x]['treinSoort']
+            eindbestemming = ns_API2Format[x]['eindbestemming'] + opmaak('eindbestemming', 33)
+            treinSoort = ns_API2Format[x]['treinSoort'] + opmaak('treinSoort', 33)
             vertrekspoor = ns_API2Format[x]['vertrekspoor']
-            viaRoute = ns_API2Format[x]['viaRoute']
+            viaRoute = '{}via:  '.format(' ' * 41) + ns_API2Format[x]['viaRoute']
             opmerking = ns_API2Format[x]['opmerking']
+            if opmerking != '':
+                opmerking = '{}opmerking:  '.format(' ' * 41) + ns_API2Format[x]['opmerking']
             vertraging = ns_API2Format[x]['vertraging']
+            if vertraging != '':
+                vertraging = ns_API2Format[x]['vertraging'] + opmaak('vertrektijd', 21)
+            else:
+                vertraging = ns_API2Format[x]['vertraging'] + opmaak('vertrektijd', 27.5)
+
 
             #elke regel hier onder is een ook een nieuwe regel in de GUI
-            text += ['{:6}{:12}{:20}{:12}{:5}'.format(vertrektijd, vertraging, eindbestemming, treinSoort, vertrekspoor)]
-            text += ['{:18}{:20}'.format('',viaRoute)]
-            text += ['{:18}{:20}'.format('',opmerking)] + ['']  #lege regel tussen de stations
+            text += ['{} {}{}{}{}'.format(vertrektijd, vertraging, eindbestemming, treinSoort, vertrekspoor)]
+            text += ['{}'.format(viaRoute)]
+            text += ['{}'.format(opmerking)] + ['']  #lege regel tussen de stations
         return text
-
-
 
     except:
         return ns_API2Format
+
+
 main_window = tk.Tk()
 main_window.attributes('-fullscreen',True)
 main_window.title("NS")
@@ -45,6 +59,13 @@ def download_img(url):
     urllib.request.urlretrieve(url, ns)
     return ns
 
+# bij de GUI wordt er nieuwe data in het textvenster geplaatst door middel van deze functie
+def on_change(e):
+    text.delete(0, END)
+    printt = (e.widget.get())
+    for lines in interfacePrinter(printt):
+        text.insert(END, lines)
+
 # ----------Alle main scherm labels-----------------------------#
 img = PhotoImage(file='nsPicture.jpg')
 photo_label = Label(main_window, image=img, width=550, height=150).pack()
@@ -52,12 +73,8 @@ main_label = Label(main_window, text='Welkom bij NS', foreground='blue',bg='#ffc
 
 station_label = Label(main_window,bg='#ffc917', text='Typ uw station', foreground='blue', font=('Ariel', 16, 'bold')).pack()
 
-def on_change(e):
-    text.delete(0, END)
-    printt = (e.widget.get())
-    for lines in interfacePrinter(printt):
-        text.insert(END, lines)
 
+# gebruik maken van de onchange functie die gelinkt wordt aan de return toets op het toetsenbord
 e = tk.Entry(main_window)
 e.pack()
 # Calling on_change when you press the return key
