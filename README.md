@@ -41,5 +41,6 @@ You're welcome to contribute (in the future),
 * [Submit bug reports](https://github.com/pepijn809/nsGUI/wiki/Bug-reports)
 * [Feature request](https://github.com/pepijn809/nsGUI/wiki/Feature-requests)
 
-### 
+
+### Hello NS! 
 ![NS op tijd](https://i.imgur.com/85qa0BJ.png)
