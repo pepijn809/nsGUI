@@ -76,10 +76,10 @@ def ns_API2Format(inputStation):
             break
         except KeyError:
             # errorMessage voor verschillende fouten die zich op kunnen doen
-            return 'geen resultaten gevonden voor {}'.format(inputStation)
+            return ['geen resultaten gevonden voor {}'.format(inputStation)]
 
         except:
-            return 'Zorg voor stabiele internet connectie!'
+            return ['Zorg voor stabiele internet connectie!']
 
     dict = {}
     for x in range(len(vertrektijd)):
