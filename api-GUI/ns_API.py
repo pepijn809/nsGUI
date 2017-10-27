@@ -1,6 +1,10 @@
 # deze functie returnt de waardes in de volgende volgorde:
-# vertrektijd, eindbestemming, treinSoort, vertrekspoor, viaRoute, opmerking, errorMessage
+# vertrektijd, eindbestemming, treinSoort, vertrekspoor, viaRoute, opmerking, vertraging
+# als er een error voordoet dan wordt alleen de error gereturnt
 def ns_API2Format(inputStation):
+    '''  deze functie zorgt er voor dat met de inloggegevens van de ns-api je kan inloggen op de website en de gereturnde waarde opslaat in en als het bestand stations.xml
+      daarna wordt het bestand stations.xml uitgelezen door de functie processXML() en wordt daarna in een mooier format gezet die nuttiger is voor het bewerken en opmaken van de
+      gereturnde waarde'''
     import requests
     import xmltodict
 
@@ -32,8 +36,9 @@ def ns_API2Format(inputStation):
                 #het schrijven van de data op de web pagina naar een textbestand
                 infile.write(webResponse.text)
 
-            #functie xml naar dictionary
+            #functie xml naar dictionary en returnt dus een dictionary
             def processXML(filename):
+                '''  het omzetten van de data in het xml bestand naar een dictionary '''
                 with open(filename) as myXMLFile:
                     filecontentstring = myXMLFile.read()
                     xmldictionary = xmltodict.parse(filecontentstring)
@@ -83,7 +88,10 @@ def ns_API2Format(inputStation):
             return ['Zorg voor stabiele internet connectie!']
 
     dict = {}
+    # er wordt een dict in dict gereturnt
     for x in range(len(eindbestemming)):
+        # zet alle bestande in een dictionary (dubbele dictionary (dict in dict)) en returnt daarna de overzichtelijke dictionary,
+        # die daarna verder bewerkt en opgemaakt kan worden door de andere functie
         dict[x] = {}
         dict[x]['vertrektijd'] = vertrektijd[x]
         dict[x]['eindbestemming'] = eindbestemming[x]
