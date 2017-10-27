@@ -1,4 +1,4 @@
-# nsGUI     v.0.9
+# nsGUI     v.1.3
 A front end GUI with API that asks the NSAPIv2 for XML Train Station data and makes it look decent. We're programming in Python, and use several modules to ask for XML data, and to format it correctly. More on that down below, 
 
 ![NS](https://i.imgur.com/S6v2gh7.png)
