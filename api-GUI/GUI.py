@@ -1,4 +1,3 @@
-import random
 import urllib.request
 from tkinter import *
 import tkinter as tk
@@ -65,15 +64,16 @@ def download_img(url):
     return ns
 
 # bij de GUI wordt er nieuwe data in het textvenster geplaatst door middel van deze functie
-def on_change(e):
+def on_change(inputBoxText):
     '''  eerst wordt de bestaande text in de listbox verwijderd als dat er staat.
      daarna haalt de functie de data uit de entry en wordt per regel (die de functe interfacePrinter returnt (list mer daar in strings)) de data toegevoegd aan de listbox van de GUI '''
     text.delete(0, END)
-    printt = (e.widget.get())
+    printt = (inputBoxText.widget.get())
     for lines in interfacePrinter(printt):
         text.insert(END, lines)
 
-#Creërt een popup message voor de overige buttons. ''' Een uitleg binnen in de def popupmsg werkt niet binnen, het versoort de code. De functie creeert een popup message met daarin aangegeven dat de button niet werkzaam is. '''
+#Creërt een popup message voor de overige buttons.
+# ''' Een uitleg binnen in de def popupmsg werkt niet binnen, het versoort de code. De functie creeert een popup message met daarin aangegeven dat de button niet werkzaam is. '''
 def popupmsg():
         popup = tk.Tk()
         popup.wm_title("Error")
@@ -83,12 +83,17 @@ def popupmsg():
         b1.pack(side=BOTTOM)
         popup.mainloop()
 
+# on_vertrektijden_click zorgt dat het event return getriggert wordt
+def on_vertrektijden_click():
+    ''' triggert return '''
+    e.event_generate('<Return>')
+
 # ----------Alle main scherm labels-----------------------------#
 img = PhotoImage(file=download_img('https://i.imgur.com/FLXfxow.png'))
 photo_label = Label(main_window, image=img, width=550, height=150).pack()
 main_label = Label(main_window, text='Welkom bij NS', foreground='blue',bg='#ffc917', font=('Ariel', 24, 'bold')).pack()
 
-station_label = Label(main_window,bg='#ffc917', text='Typ uw station', foreground='blue', font=('Ariel', 16, 'bold')).pack()
+station_label = Label(main_window ,bg='#ffc917', text='Typ uw station', foreground='blue', font=('Ariel', 16, 'bold')).pack()
 
 
 # gebruik maken van de onchange functie die gelinkt wordt aan de return toets op het toetsenbord
@@ -96,7 +101,6 @@ e = tk.Entry(main_window)
 e.pack()
 # Calling on_change when you press the return key
 e.bind("<Return>", on_change)
-
 
 
 koop_button = Button(main_window, command=popupmsg, text='Koop los kaartje', background='yellow', foreground='blue',
@@ -108,7 +112,7 @@ naar_buitenland_button = Button(main_window, command=popupmsg, text='Ik wil naar
 ov_button = Button(main_window, command=popupmsg, text='Koop OV-Chipkaart', background='yellow', foreground='blue',
                   font=('Ariel', 14, 'bold')).pack(padx=5, pady=10, side=BOTTOM)
 
-vertrek_button = Button(main_window, text='Vertrektijden', background='yellow', foreground='blue',
+vertrek_button = Button(main_window, command=on_vertrektijden_click, text='Vertrektijden', background='yellow', foreground='blue',
                        font=('Ariel', 14, 'bold')).pack(padx=5, pady=10, side=BOTTOM)
 
 #Dit maakt een tekst veld aan waarin de informatie terecht komt.
@@ -119,7 +123,3 @@ Listbox.config(text,background='#ffc917', foreground='blue', font=('Ariel', 16),
 
 
 main_window.mainloop()
-
-
-
-
