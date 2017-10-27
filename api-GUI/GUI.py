@@ -73,6 +73,16 @@ def on_change(e):
     for lines in interfacePrinter(printt):
         text.insert(END, lines)
 
+#Creërt een popup message voor de overige buttons. ''' Een uitleg binnen in de def popupmsg werkt niet binnen, het versoort de code. De functie creeert een popup message met daarin aangegeven dat de button niet werkzaam is. '''
+def popupmsg():
+        popup = tk.Tk()
+        popup.wm_title("Error")
+        label = tk.Label(popup, text='Net als uw trein, zijn wij ook te laat!', font=('Ariel', 16, 'bold'),background='#ffc917')
+        label.pack(side='top', fill='x', pady=10)
+        b1 = tk.Button(popup, text='Return', command=popup.destroy)
+        b1.pack(side=BOTTOM)
+        popup.mainloop()
+
 # ----------Alle main scherm labels-----------------------------#
 img = PhotoImage(file=download_img('https://i.imgur.com/FLXfxow.png'))
 photo_label = Label(main_window, image=img, width=550, height=150).pack()
@@ -89,18 +99,19 @@ e.bind("<Return>", on_change)
 
 
 
-koop_label = Button(main_window, text='Koop los kaartje', background='yellow', foreground='blue',
+koop_button = Button(main_window, command=popupmsg, text='Koop los kaartje', background='yellow', foreground='blue',
                     font=('Ariel', 14, 'bold')).pack(padx=5, pady=10, side=BOTTOM)
 
-naar_buitenland_label = Button(main_window, text='Ik wil naar het buitenland', background='yellow', foreground='blue',
+naar_buitenland_button = Button(main_window, command=popupmsg, text='Ik wil naar het buitenland', background='yellow', foreground='blue',
                                font=('Ariel', 14, 'bold')).pack(padx=5, pady=10, side=BOTTOM)
 
-ov_label = Button(main_window, text='Koop OV-Chipkaart', background='yellow', foreground='blue',
+ov_button = Button(main_window, command=popupmsg, text='Koop OV-Chipkaart', background='yellow', foreground='blue',
                   font=('Ariel', 14, 'bold')).pack(padx=5, pady=10, side=BOTTOM)
 
-vertrek_label = Button(main_window, text='Vertrektijden', background='yellow', foreground='blue',
+vertrek_button = Button(main_window, text='Vertrektijden', background='yellow', foreground='blue',
                        font=('Ariel', 14, 'bold')).pack(padx=5, pady=10, side=BOTTOM)
 
+#Dit maakt een tekst veld aan waarin de informatie terecht komt.
 text = Listbox(main_window)
 text.pack()
 Listbox.pack(text,fill=BOTH)
